@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, TrendingUp, Users, Lightbulb, Mail, Linkedin, ChevronRight, ExternalLink } from 'lucide-react';
+import { Briefcase, TrendingUp, Users, Lightbulb, Mail, Linkedin, ChevronRight } from 'lucide-react';
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('products');
@@ -56,6 +56,21 @@ export default function Portfolio() {
       period: "2014-2016",
       impact: "Managed $6M in partnerships. Expanded wallet share 15% YoY through consultative approach"
     }
+  ];
+
+  const skills = [
+    'Strategic Account Management',
+    'Customer Success & Retention',
+    'Enterprise Sales & Upselling',
+    'GTM Strategy & Execution',
+    'Product-Led Growth (PLG)',
+    'C-Level Relationship Building',
+    'Data-Driven Decision Making',
+    'Cross-Functional Collaboration',
+    'Process Optimization',
+    'SaaS/Tech Industry Expertise',
+    'CRM & Sales Tools (Salesforce, Gong)',
+    'Change Management'
   ];
 
   return (
@@ -167,7 +182,7 @@ export default function Portfolio() {
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-2xl font-bold text-blue-400">{product.name}</h3>
                   <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">
-                    {product.market.includes('B2B') ? 'B2B' : 'B2C'} {product.market.includes('B2C') && product.market.includes('B2B') ? '+ B2C' : ''}
+                    {product.market.includes('B2B') && product.market.includes('B2C') ? 'B2B + B2C' : product.market.includes('B2B') ? 'B2B' : 'B2C'}
                   </span>
                 </div>
 
@@ -263,20 +278,7 @@ export default function Portfolio() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold mb-8">Core Competencies</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            'Strategic Account Management',
-            'Customer Success & Retention',
-            'Enterprise Sales & Upselling',
-            'GTM Strategy & Execution',
-            'Product-Led Growth (PLG)',
-            'C-Level Relationship Building',
-            'Data-Driven Decision Making',
-            'Cross-Functional Collaboration',
-            'Process Optimization',
-            'SaaS/Tech Industry Expertise',
-            'CRM & Sales Tools (Salesforce, Gong)',
-            'Change Management'
-          ].map((skill, idx) => (
+          {skills.map((skill, idx) => (
             <div key={idx} className="px-4 py-3 bg-slate-800/50 rounded-lg border border-slate-700 text-center">
               {skill}
             </div>
